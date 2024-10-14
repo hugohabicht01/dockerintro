@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Welcome</title>
+        <!-- Load Tailwind CSS from CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body
+        class="bg-gray-700 flex flex-col items-center justify-center h-screen space-y-6"
+    >
+        <div class="text-center">
+            <h1 class="text-4xl font-bold text-blue-600">
+                Welcome from Docker
+            </h1>
+            <p class="mt-4 text-lg text-gray-700">Served by Caddy</p>
+        </div>
+
+        <!-- Docker and Caddy logos -->
+        <div class="flex justify-center items-center space-x-8 mt-8">
+            <!-- Docker logo -->
+            <img
+                src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"
+                alt="Docker logo"
+                class="h-24"
+            />
+            <span class="text-white p-4">and</span>
+            <!-- Caddy logo -->
+            <img
+                src="https://caddyserver.com/resources/images/logo-dark.svg"
+                alt="Caddy logo"
+                class="h-24"
+            />
+        </div>
+    </body>
+</html>
