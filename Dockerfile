@@ -1,12 +1,8 @@
-FROM node:18-alpine
+FROM golang AS builder
+WORKDIR /build
+COPY . ./
+RUN CGO_ENABLED=0 go build -ldflags '-extldflags "-static"' -o main main.go
 
-WORKDIR /app
-
-COPY . .
-
-RUN yarn install --production
-
-CMD ["node", "src/index.js"]
-
-EXPOSE 3000
-
+FROM scratch
+COPY --from=builder /build/main /main
+ENTRYPOINT ["/main"]
