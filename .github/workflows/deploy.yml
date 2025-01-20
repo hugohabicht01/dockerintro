@@ -42,4 +42,4 @@ jobs:
           --region europe-west3 \
           --platform managed \
           --allow-unauthenticated
-          --service-account cloud-run-sa@cloudintro-448420.iam.gserviceaccount.com
+          --service-account=cloud-run-sa@cloudintro-448420.iam.gserviceaccount.com
