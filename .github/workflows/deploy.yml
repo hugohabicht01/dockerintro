@@ -23,7 +23,7 @@ jobs:
 
     # Authenticate Docker with Google Artifact Registry
     - name: Authenticate Docker
-      run: gcloud auth configure-docker
+      run: gcloud auth configure-docker gcr.io
 
     # Build and push the Docker image
     - name: Build and push Docker image
