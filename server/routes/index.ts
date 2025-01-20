@@ -19,7 +19,7 @@ export default defineEventHandler((event) => {
       
       <br>
       <br>
-      <i>Powered by nitro and htmx</i>
+      <i>Powered by bun, nitro and htmx</i>
       <script src="https://unpkg.com/htmx.org@2.0.4"></script>
     </body>
   </html>`;

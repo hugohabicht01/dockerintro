@@ -10,9 +10,10 @@ RUN bun install
 
 COPY . .
 
-RUN yarn build
+RUN bun run build --preset bun
 
-FROM oven/bun:alpine
+# --- second stage
+FROM oven/bun:alpine as production
 
 ENV NODE_ENV production
 
@@ -22,9 +23,9 @@ WORKDIR /usr/src/app
 # Install app dependencies
 COPY package.json bun.lockb ./
 
-RUN bun install --production
+RUN bun install
 
-COPY --from=builder /usr/src/app/dist ./.output
+COPY --from=builder /usr/src/app/.output ./.output
 
 EXPOSE 3000
-CMD [ "node", ".output/index.js" ]
+CMD [ "bun", "run","-p", "3000", ".output/server/index.mjs" ]
