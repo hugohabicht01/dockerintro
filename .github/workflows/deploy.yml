@@ -14,12 +14,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # Set up Google Cloud SDK
-    - name: Set up Google Cloud SDK
-      uses: google-github-actions/setup-gcloud@v1
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
       with:
-        service_account_key: ${{ secrets.GCLOUD_SERVICE_KEY }}
-        project_id: cloudintro-448420
+        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v2'
 
     # Authenticate Docker with Google Artifact Registry
     - name: Authenticate Docker
