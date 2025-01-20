@@ -1,5 +1,3 @@
-# Repo for compsoc workshop "Intro to Docker"
+# Nitro starter
 
-Instructions:
-1. `docker build -t intro:v0.1`
-2. `docker run -p 3000:3000 --name introcontainer intro:v0.1`
+Look at the [nitro quick start](https://nitro.unjs.io/guide#quick-start) to learn more how to get started.

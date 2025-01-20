@@ -1,12 +1,30 @@
-FROM node:18-alpine
+FROM oven/bun AS builder
 
-WORKDIR /app
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY package.json bun.lockb ./
+
+RUN bun install
 
 COPY . .
 
-RUN yarn install --production
+RUN yarn build
 
-CMD ["node", "src/index.js"]
+FROM oven/bun:alpine
+
+ENV NODE_ENV production
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY package.json bun.lockb ./
+
+RUN bun install --production
+
+COPY --from=builder /usr/src/app/dist ./.output
 
 EXPOSE 3000
-
+CMD [ "node", ".output/index.js" ]
