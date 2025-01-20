@@ -43,4 +43,3 @@ jobs:
           --platform managed \
           --allow-unauthenticated
           --service-account=cloud-run-sa@cloudintro-448420.iam.gserviceaccount.com
-          --no-use-default-service-account
