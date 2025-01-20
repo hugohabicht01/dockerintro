@@ -25,12 +25,12 @@ jobs:
 
     # Authenticate Docker with Google Artifact Registry
     - name: Authenticate Docker
-      run: gcloud auth configure-docker gcr.io
+      run: gcloud auth configure-docker europe-west3-docker.pkg.dev
 
     # Build and push the Docker image
     - name: Build and push Docker image
       run: |
-        IMAGE_NAME=gcr.io/cloudintro-448420/dockerintro:latest
+        IMAGE_NAME=europe-west3-docker.pkg.dev/cloudintro-448420/dockerintro/app:latest
         docker build -t $IMAGE_NAME .
         docker push $IMAGE_NAME
 
@@ -38,7 +38,7 @@ jobs:
     - name: Deploy to Cloud Run
       run: |
         gcloud run deploy github-actions@cloudintro-448420.iam.gserviceaccount.com \
-          --image gcr.io/cloudintro-448420/dockerintro:latest \
+          --image europe-west3-docker.pkg.dev/cloudintro-448420/dockerintro/app:latest \
           --region europe-west3 \
           --platform managed \
           --allow-unauthenticated
