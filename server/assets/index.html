@@ -9,12 +9,20 @@
       <p>This is just a static text</p>
     </div>
     <br />
-    <p>
-      Current time on server, generated on the server on page load:
-      $TIME
-    </p>
+    <p>Current time on server, generated on the server on page load: $TIME</p>
 
     <br />
+    <div>
+      <h3>Guest book</h3>
+      <p>$ENTRIES</p>
+      <form action="/api/guestbook" method="post">
+        <label for="name">Your name:</label>
+        <input type="text" id="name" name="name">
+        <label for="message">Your message:</label>
+        <input type="text" id="message" name="message">
+        <input type="submit">
+      </form
+    </div>
     <br />
     <i>Powered by bun, nitro and htmx</i>
     <script src="https://unpkg.com/htmx.org@2.0.4"></script>

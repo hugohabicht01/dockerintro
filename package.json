@@ -8,5 +8,9 @@
   },
   "devDependencies": {
     "nitropack": "latest"
+  },
+  "dependencies": {
+    "@google-cloud/firestore": "^7.11.0",
+    "nanoid": "^5.0.9"
   }
 }

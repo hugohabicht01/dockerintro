@@ -5,9 +5,14 @@ export default defineEventHandler(async (event) => {
   const seconds = date.getSeconds();
   const currentTime = `${hours}:${minutes}:${seconds}`;
 
-  const htmlTemplate = await useStorage('assets:server').getItem(`time.html`)
-  const rendered = htmlTemplate.toString().replace("$TIME", currentTime);
+  const entriesHtml = renderEntries(await getEntries());
 
+
+  const htmlTemplate = await useStorage("assets:server").getItem(`index.html`);
+  const rendered = htmlTemplate
+    .toString()
+    .replace("$TIME", currentTime)
+    .replace("$ENTRIES", entriesHtml.toString());
 
   return rendered;
 });
