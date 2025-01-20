@@ -30,7 +30,7 @@ jobs:
     # Build and push the Docker image
     - name: Build and push Docker image
       run: |
-        IMAGE_NAME=europe-west3-docker.pkg.dev/cloudintro-448420/dockerintro/app:latest
+        IMAGE_NAME=europe-west3-docker.pkg.dev/$GOOGLE_CLOUD_PROJECT/dockerintro/app:latest
         docker build -t $IMAGE_NAME .
         docker push $IMAGE_NAME
 
@@ -38,8 +38,8 @@ jobs:
     - name: Deploy to Cloud Run
       run: |
         gcloud run deploy dockerintro-app \
-          --image europe-west3-docker.pkg.dev/cloudintro-448420/dockerintro/app:latest \
+          --image europe-west3-docker.pkg.dev/$GOOGLE_CLOUD_PROJECT/dockerintro/app:latest \
           --region europe-west3 \
           --platform managed \
-          --allow-unauthenticated
-          --service-account=cloud-run-sa@cloudintro-448420.iam.gserviceaccount.com
+          --allow-unauthenticated \
+          --service-account=cloud-run-sa@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com
