@@ -27,7 +27,7 @@ export async function getEntries() {
 
 export function renderEntries(entries: Awaited<ReturnType<typeof getEntries>>) {
   const messages = entries.map(
-    (e) => `<li><i>${e.name}</i> says<br> <i>${e.message}</i></li>`,
+    (e) => `<li><i><span class="name">${e.name}</span></i> says <i><span class="message">${e.message}</span></i></li>`,
   );
   if (messages.length === 0) {
     return '<p>No one has written any guestbook entries yet, be the first!</p>'

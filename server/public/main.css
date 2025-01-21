@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-size: 1.4em;
+  padding: 4em;font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: #fcf5c7;
+  color: #45AAFE;
+}
+
+input[type="submit"], button {
+  background-color:#BD7264;
+  color: #BBFFAB;
+  border: 0;
+  padding: 0.75em 1em;
+  margin: 1em;
+  border-radius: 8px;
+}
+
+
+input[type="submit"]:hover, button:hover {
+  background-color: #E69788;
+}
+
+.message, .name {
+  color: #627280;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5em;
+  font-size: 1.2em;
+}
+
+input[type="text"] {
+  font-size: 0.8em;
+  padding: 0.5em;
+  border: 4px #627280 dotted;
+  border-radius: 8px;
+  background-color: #ffee93;
+}
+input[type="text"]:focus {
+  outline: none;
+  border-color: #4A5C69;
+  background-color: #FFFFA4;
+}

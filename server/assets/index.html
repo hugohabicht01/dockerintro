@@ -1,4 +1,7 @@
 <html>
+  <head>
+    <link rel="stylesheet" href="main.css">
+  </head>
   <body>
     <h1>Welcome to my page!</h1>
     <p>This is served from a custom nodejs based backend</p>
@@ -12,15 +15,16 @@
     <p>Current time on server, generated on the server on page load: $TIME</p>
 
     <br />
-    <div>
+    <div id="guestbook">
       <h3>Guest book</h3>
       <p>$ENTRIES</p>
-      <form action="/api/guestbook" method="post">
+      <h4>Leave message</h4>
+      <form action="/api/guestbook" method="post" id="guestbookform">
         <label for="name">Your name:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" required>
         <label for="message">Your message:</label>
-        <input type="text" id="message" name="message">
-        <input type="submit">
+        <input type="text" id="message" name="message" required>
+        <input type="submit" id="submit">
       </form
     </div>
     <br />
